@@ -108,7 +108,7 @@ function Animal() {
             thirsty += 20
             mood += 5
 
-            console.log('Thank you, I feel better after drink')
+            console.log('Thank you, I feel better after drink water')
             console.log('My data: ') 
             console.log('health = ' + health + '%')
             console.log('satiety = ' + satiety + '%') 
