@@ -1,145 +1,113 @@
 function Animal() {
-    var health = 60
-    var satiety = 50
-    var thirsty = 40
-    var mood = 65
-    var purity = 50
-    var sleep = 20
 
+	this.params = function () {
+        this.health = 60, 
+        this.satiety = 50,
+        this.thirsty = 40,
+        this.mood = 65,
+        this.purity = 50,
+        this.sleep = 20
+	},	
+
+    this.info =  function () {
+        console.log('My data: ') 
+        console.log('health = ' + this.health + '%')
+        console.log('satiety = ' + this.satiety + '%') 
+        console.log('thirsty = ' + this.thirsty + '%')  
+        console.log('mood = ' + this.mood + '%')  
+        console.log('purity = ' + this.purity + '%')
+        console.log('sleep = ' + this.sleep + '%')
+        console.log('-------------------------')  
+    }
 
     this.toCreate = function (name) {
-        Animal.name = name || 'name'
+        this.name = name || 'name'
         console.log('Hi, my name is ' + name + ' I will be your best friend')
-        health 
-        satiety 
-        thirsty 
-        mood 
-        purity
-        sleep
-
-        console.log('My data: ') 
-        console.log('health = ' + health + '%')
-        console.log('satiety = ' + satiety + '%') 
-        console.log('thirsty = ' + thirsty + '%')  
-        console.log('mood = ' + mood + '%')  
-        console.log('purity = ' + purity + '%')
-        console.log('sleep = ' + sleep + '%')
-        console.log('-------------------------')  
-            
-
+        this.params()
+        this.info()
     },
 
     this.toEat = function () {
-        if (satiety >= 80) {  
+        if (this.satiety >= 90) {  
             console.log('I don\'t want eat')
         } else { 
-            health += 5
-            satiety += 25
-            thirsty -= 5
-            mood += 5
-            purity -= 15
+            this.health += 5
+            this.satiety += 15
+            this.thirsty -= 15
+            this.mood += 5
+            this.purity -= 20
 
             console.log('Thank you, I feel better after meal')
-            console.log('My data: ') 
-            console.log('health = ' + health + '%')
-            console.log('satiety = ' + satiety + '%') 
-            console.log('thirsty = ' + thirsty + '%')  
-            console.log('mood = ' + mood + '%')  
-            console.log('purity = ' + purity + '%')
-            console.log('sleep = ' + sleep + '%')
+            this.info()
+            this.reset()
             this.randomCase()
         }
-        console.log('-------------------------')
     },
 
     this.toPlay = function () {
-        if (health >= 85) {  
+        if (this.health >= 95) {  
             console.log('I don\'t want play')
         } else { 
-            health -= 30
-            satiety -= 15
-            thirsty -= 20
-            mood += 15
-            purity -= 10
-            sleep += 10
+            this.health -= 30
+            this.satiety -= 15
+            this.thirsty -= 20
+            this.mood += 10
+            this.purity -= 15
+            this.sleep += 10
 
             console.log('Thank you, I feel better after playing')
-            console.log('My data: ') 
-            console.log('health = ' + health + '%')
-            console.log('satiety = ' + satiety + '%') 
-            console.log('thirsty = ' + thirsty + '%')  
-            console.log('mood = ' + mood + '%')  
-            console.log('purity = ' + purity + '%')
-            console.log('sleep = ' + sleep + '%')
+            this.info()
+            this.reset()
             this.randomCase()
         }
-        console.log('-------------------------')
     },    
 
     this.toSleep = function () {
-        if (sleep >= 60) {  
+        if (this.sleep >= 80) {  
             console.log('I don\'t want sleep')
         } else { 
-            health += 10
-            satiety -= 10
-            thirsty -= 5
-            mood += 5
-            sleep += 25
+            this.health += 5
+            this.satiety -= 20
+            this.thirsty -= 15
+            this.mood += 5
+            this.sleep += 20
 
             console.log('Thank you, I feel better after sleep')
-            console.log('My data: ') 
-            console.log('health = ' + health + '%')
-            console.log('satiety = ' + satiety + '%') 
-            console.log('thirsty = ' + thirsty + '%')  
-            console.log('mood = ' + mood + '%')  
-            console.log('purity = ' + purity + '%')
-            console.log('sleep = ' + sleep + '%')
+            this.info()
+            this.reset()
             this.randomCase()
         }
-        console.log('-------------------------')
     },
 
     this.toDrink = function () {
-        if (thirsty >= 80) {
+        if (this.thirsty >= 92) {
             console.log('I don\'t want water') 
         } else {
-            health += 5
-            satiety += 5
-            thirsty += 20
-            mood += 5
+            this.health += 5
+            this.satiety += 5
+            this.thirsty += 20
+            this.mood += 5
 
             console.log('Thank you, I feel better after drink water')
-            console.log('My data: ') 
-            console.log('health = ' + health + '%')
-            console.log('satiety = ' + satiety + '%') 
-            console.log('thirsty = ' + thirsty + '%')  
-            console.log('mood = ' + mood + '%')  
-            console.log('purity = ' + purity + '%')
-            console.log('sleep = ' + sleep + '%') 
+            this.info()
+            this.reset()
             this.randomCase() 
         }
-        console.log('-------------------------')
     },
 
     this.toWash = function () {
-         if (purity >= 80) {
+         if (this.purity >= 90) {
             console.log('I don\'t want to go the bath') 
         } else {
-            health += 5  
-            mood += 5
-            purity += 20
+            this.health += 5  
+            this.mood += 5
+            this.purity += 20
 
             console.log('Thank you, I feel better after bath')
-            console.log('My data: ') 
-            console.log('health = ' + health + '%')
-            console.log('satiety = ' + satiety + '%') 
-            console.log('thirsty = ' + thirsty + '%')  
-            console.log('mood = ' + mood + '%')  
-            console.log('purity = ' + purity + '%')
-            console.log('sleep = ' + sleep + '%')
+            this.info()
+            this.reset()
             this.randomCase()  
         }
-        console.log('-------------------------')
     },
 
     this.help = function () {
@@ -151,23 +119,95 @@ function Animal() {
         console.log('animal.toSleep() - Your animal tired and want sleep')
         console.log('animal.toDrink() - Animal want water')
         console.log('animal.toWash() - Your animal needs a bath')
-    }  
+    },
+
+    this.reset = function () {
+       	if (this.health > 100) {
+            this.health = 100
+            console.log('Your animal healthy')
+
+        }
+        if (this.health < 0) {
+            this.health = 0
+            console.clear()
+            console.log('Your animal is ill and died from the disease \n Restart app and play again!')
+        }
+        if (this.satiety > 100) {
+            this.satiety = 100
+            console.log('Your animal are not hungry.')
+
+        }
+        if (this.satiety < 0) {
+            this.satiety = 0
+            console.clear()
+            console.log('Your animal died of starvation \n Restart app and play again!')
+   	 	}
+   	 	if (this.thirsty > 100) {
+            this.thirsty = 100
+            console.log('Your animal are not thirsty.')
+
+        }
+        if (this.thirsty < 0) {
+            this.thirsty = 0
+            console.clear()
+            console.log('Your animal died of thirsty \n Restart app and play again!')
+   	 	}
+   	 	if (this.mood > 100) {
+            this.mood = 100
+            console.log('Your animal are very happy :)')
+
+        }
+        if (this.mood < 0) {
+            this.mood = 0
+            console.clear()
+            console.log('Your animal sad and away from you \n Restart app and play again!')
+   	 	}
+   	 	if (this.purity > 100) {
+            this.purity = 100
+            console.log('Your animal are clean')
+
+        }
+        if (this.purity < 0) {
+            this.purity = 0
+            console.clear()
+            console.log('Your animal was dirty and got the infection \n Restart app and play again!')
+   	 	}
+   	 	if (this.sleep > 100) {
+            this.sleep = 100
+            console.log('Your animal feels great')
+
+        }
+        if (this.sleep < 0) {
+            this.sleep = 0
+            console.clear()
+            console.log('Your animal was taken to the hospital due to lack of sleep \n Restart app and play again!')
+   	 	}
+	},	
      
     this.randomCase = function () {
-    var rand = Math.floor( Math.random() * 9 )
+    var rand = Math.floor( Math.random() * 12)
 
     switch (rand) {
-        case 3:
-            this.die 
-            console.log('After this action your animal was killed neighbor')
+        case 4:
+            console.clear()
+            console.log('After this action your animal was killed neighbor!')
+            console.log('------------------------------------------ \n Restart app and play again!') 
+            console.log('----------------------------------')
+            animal.help()
             break
-        case 6:
-            this.runAway 
+        case 8:
+            console.clear()
             console.log('After this action your animal run from you.')
+            console.log('------------------------------------------ \n Restart app and play again!')
+            console.log('----------------------------------') 
+            animal.help()
             break
-        case 9:
-            this.die 
+        case 12: 
+            console.clear()
             console.log('After this action your animal was hit by car.')
+            console.log('------------------------------------------ \n Restart app and play again!')
+            console.log('----------------------------------') 
+            animal.help()
             break
         }
     }   
