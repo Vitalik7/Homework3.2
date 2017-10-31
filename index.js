@@ -1,13 +1,13 @@
 function Animal () {
 
-	this.params = function () {
+    this.params = function () {
         this.health = 60, 
         this.satiety = 50,
         this.thirsty = 40,
         this.mood = 65,
         this.purity = 50,
         this.sleep = 20
-	},	
+    },	
 
     this.info =  function () {
         console.log('My data: ') 
