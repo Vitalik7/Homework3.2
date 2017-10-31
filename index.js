@@ -1,4 +1,4 @@
-function Animal() {
+function Animal () {
 
 	this.params = function () {
         this.health = 60, 
@@ -18,13 +18,17 @@ function Animal() {
         console.log('purity = ' + this.purity + '%')
         console.log('sleep = ' + this.sleep + '%')
         console.log('-------------------------')  
-    }
+    },
 
     this.toCreate = function (name) {
-        this.name = name || 'name'
-        console.log('Hi, my name is ' + name + ' I will be your best friend')
-        this.params()
-        this.info()
+        if (name === undefined) {
+            console.log('Write name your animal!!!')
+        } else {
+            this.name = name 
+            console.log('Hi, my name is ' + name + ' I will be your best friend')
+            this.params()
+            this.info()
+        }
     },
 
     this.toEat = function () {
@@ -131,6 +135,7 @@ function Animal() {
             this.health = 0
             console.clear()
             console.log('Your animal is ill and died from the disease \n Restart app and play again!')
+            this.die()
         }
         if (this.satiety > 100) {
             this.satiety = 100
@@ -141,6 +146,7 @@ function Animal() {
             this.satiety = 0
             console.clear()
             console.log('Your animal died of starvation \n Restart app and play again!')
+            this.die()
    	 	}
    	 	if (this.thirsty > 100) {
             this.thirsty = 100
@@ -151,6 +157,7 @@ function Animal() {
             this.thirsty = 0
             console.clear()
             console.log('Your animal died of thirsty \n Restart app and play again!')
+            this.die()
    	 	}
    	 	if (this.mood > 100) {
             this.mood = 100
@@ -161,6 +168,7 @@ function Animal() {
             this.mood = 0
             console.clear()
             console.log('Your animal sad and away from you \n Restart app and play again!')
+            this.die()
    	 	}
    	 	if (this.purity > 100) {
             this.purity = 100
@@ -171,6 +179,7 @@ function Animal() {
             this.purity = 0
             console.clear()
             console.log('Your animal was dirty and got the infection \n Restart app and play again!')
+            this.die()
    	 	}
    	 	if (this.sleep > 100) {
             this.sleep = 100
@@ -181,33 +190,37 @@ function Animal() {
             this.sleep = 0
             console.clear()
             console.log('Your animal was taken to the hospital due to lack of sleep \n Restart app and play again!')
+            this.die()
    	 	}
 	},	
+
+    this.die = function (){
+        console.log('-------------------------')
+        console.log('Game Over')
+        animal = undefined
+    },
      
     this.randomCase = function () {
-    var rand = Math.floor( Math.random() * 12)
+    var rand = Math.floor( Math.random() * 10)
 
     switch (rand) {
-        case 4:
+        case 5:
             console.clear()
             console.log('After this action your animal was killed neighbor!')
             console.log('------------------------------------------ \n Restart app and play again!') 
-            console.log('----------------------------------')
-            animal.help()
+            this.die()
             break
-        case 8:
+        case 10:
             console.clear()
             console.log('After this action your animal run from you.')
             console.log('------------------------------------------ \n Restart app and play again!')
-            console.log('----------------------------------') 
-            animal.help()
+            this.die()
             break
-        case 12: 
+        case 15: 
             console.clear()
             console.log('After this action your animal was hit by car.')
             console.log('------------------------------------------ \n Restart app and play again!')
-            console.log('----------------------------------') 
-            animal.help()
+            this.die()
             break
         }
     }   
@@ -215,3 +228,4 @@ function Animal() {
 
 var animal = new Animal()
 animal.help()
+
